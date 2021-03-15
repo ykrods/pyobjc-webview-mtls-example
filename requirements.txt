@@ -1,0 +1,4 @@
+aiohttp==3.7.3
+cryptography==3.4.6
+pyinstaller==4.2
+pyobjc==7.1

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>My App</title>
+</head>
+<body>
+<h1>My App</h1>
+<button id="button">get now</button> :<span id="now">---</span>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    function log(msg) {
+        window.webkit.messageHandlers.logging.postMessage(msg);
+    }
+
+    log('log to stdout');
+
+    document.getElementById('button').addEventListener('click', async () => {
+        const res = await fetch('/api/now');
+        const data = await res.json();
+        document.getElementById('now').innerText = data.now;
+    });
+});
+</script>
+</body>
+</html>
